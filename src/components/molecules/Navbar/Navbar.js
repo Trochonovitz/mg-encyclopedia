@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+import { connect } from 'react-redux';
+import { removeAll as removeAllAction } from '../../../actions/actions';
 
 import Button from '../../atoms/Button/Button';
 import AddForm from '../../organisms/AddForm/AddForm';
@@ -50,10 +54,12 @@ class Navbar extends React.Component {
   render() {
     const { visibleAddForm } = this.state;
 
+    const { removeAll } = this.props;
+
     return (
       <StyledNavigation>
         <StyledButton onClick={this.handleClickAddForm}>Dodaj grę</StyledButton>
-        <StyledButton>Zaznacz wszystkie</StyledButton>
+        <StyledButton onClick={() => removeAll()}>Usuń wszystkie</StyledButton>
 
         <AddForm isVisible={visibleAddForm} />
       </StyledNavigation>
@@ -61,4 +67,12 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+Navbar.propTypes = {
+  removeAll: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  removeAll: () => dispatch(removeAllAction()),
+});
+
+export default connect(null, mapDispatchToProps)(Navbar);
