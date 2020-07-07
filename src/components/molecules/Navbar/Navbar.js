@@ -7,6 +7,7 @@ import { removeAll as removeAllAction } from '../../../actions/actions';
 
 import Button from '../../atoms/Button/Button';
 import AddForm from '../../organisms/AddForm/AddForm';
+import SearchBar from '../SearchBar/SearchBar';
 
 const StyledNavigation = styled.div`
   height: 100px;
@@ -16,17 +17,21 @@ const StyledNavigation = styled.div`
   );
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+`;
+
+const StyledWrapper = styled.div`
+  display: flex;
 `;
 
 const StyledButton = styled(Button)`
-  height: 30%;
+  width: 50%;
 
   padding: 5px;
   border-radius: 5px;
-
   margin-right: 10px;
-  margin-top: 10px;
 
   cursor: pointer;
   color: white;
@@ -58,8 +63,16 @@ class Navbar extends React.Component {
 
     return (
       <StyledNavigation>
-        <StyledButton onClick={this.handleClickAddForm}>Dodaj grę</StyledButton>
-        <StyledButton onClick={() => removeAll()}>Usuń wszystkie</StyledButton>
+        <StyledWrapper>
+          <StyledButton onClick={this.handleClickAddForm}>
+            Dodaj grę
+          </StyledButton>
+          <StyledButton onClick={() => removeAll()}>
+            Usuń wszystkie
+          </StyledButton>
+        </StyledWrapper>
+
+        <SearchBar />
 
         <AddForm isVisible={visibleAddForm} />
       </StyledNavigation>

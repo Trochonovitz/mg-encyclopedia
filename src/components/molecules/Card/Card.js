@@ -37,6 +37,10 @@ const StyledInfoBox = styled.div`
   margin: 30px 0 0 30px;
 `;
 
+const StyledCover = styled(Cover)`
+  width: 30%;
+`;
+
 const Card = ({
   title,
   cover,
@@ -50,7 +54,7 @@ const Card = ({
   website,
 }) => (
   <StyledWrapper>
-    <Cover src={cover} />
+    <StyledCover src={cover} />
     <StyledInfo>
       <Header>{title}</Header>
       <StyledInfoBox>

@@ -1,6 +1,7 @@
 export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const REMOVE_ALL = 'REMOVE_ALL';
+export const SEARCH = 'SEARCH';
 
 export const removeItem = (id) => ({
   type: REMOVE_ITEM,
@@ -21,3 +22,8 @@ export const addItem = (itemContent) => {
     },
   };
 };
+
+export const searchItem = (item) => ({
+  type: SEARCH,
+  payload: { item },
+});

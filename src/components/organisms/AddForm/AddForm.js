@@ -70,7 +70,10 @@ const AddForm = ({ isVisible, addItem }) => (
         website: '',
         description: '',
       }}
-      onSubmit={(values) => addItem(values)}
+      onSubmit={(values, { resetForm }) => {
+        addItem(values);
+        resetForm({ values: '' });
+      }}
     >
       {() => (
         <StyledForm>

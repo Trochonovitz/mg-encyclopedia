@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import DetailsTemplate from '../templates/DetailsTemplate';
 
 const dummyArticle = {
@@ -33,4 +35,9 @@ const DetailsPage = () => (
   />
 );
 
-export default DetailsPage;
+const mapStateToProps = (state) => {
+  const { games } = state;
+  return { games };
+};
+
+export default connect(mapStateToProps)(DetailsPage);

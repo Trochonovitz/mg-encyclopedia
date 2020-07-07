@@ -108,7 +108,7 @@ GameList.propTypes = {
   cover: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   removeItem: PropTypes.func.isRequired,
 };
 
